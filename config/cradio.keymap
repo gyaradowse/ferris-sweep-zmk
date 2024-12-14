@@ -24,13 +24,8 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        tri_layer {
+        fun_layer {
             if-layers = <1 2>;
-            then-layer = <6>;
-        };
-
-        tri_layer {
-            if-layers = <3 4>;
             then-layer = <5>;
         };
     };
@@ -90,7 +85,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-           &none        &none     &none     &none       &none       &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
+           &none        &none     &none     &none       &none           &kp DEL  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   |          │          │          │          |          |
             &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none        &kp CAPS   &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
@@ -98,7 +93,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
             &none     &none     &none       &none      &none          &kp INS     &kp HOME  &kp PG_DN   &kp PG_UP   &kp END
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &none     &none         &kp ENTER     &kp DEL
+                                             &none     &none         &kp BSPC     &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -133,23 +128,6 @@
             &none     &none     &none       &none      &none         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &none            &kp C_PP &kp C_MUTE
-        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
-            >;
-        };
-
-        mouse_layer {
-            bindings = <
-        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &sys_reset  &none     &none     &none    &bt BT_SEL 0    &none     &none     &none     &none    &sys_reset
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &bootloader  &none     &none     &none    &bt BT_SEL 1    &none     &none     &none     &none    &bootloader
-        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
-            &none     &none     &none    &bt BT_CLR &bt BT_SEL 2    &none     &none     &none     &none     &none
-        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &none     &none         &none     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
