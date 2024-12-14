@@ -26,12 +26,12 @@
         compatible = "zmk,conditional-layers";
         fun_layer {
             if-layers = <1 2>;
-            then-layer = <5>;
+            then-layer = <6>;
         };
 
         mouse_layer {
             if-layers = <3 4>;
-            then-layer = <4>;
+            then-layer = <5>;
         };
     };
 
