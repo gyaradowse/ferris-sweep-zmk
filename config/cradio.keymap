@@ -50,6 +50,15 @@
         };
     };
 
+    behaviors {
+        sft_dot: shifted_dot {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LSHFT>, <&kp DOT>;
+            mods = <&kp COLON>;
+        };
+    };
+
 
     keymap {
         compatible = "zmk,keymap";
@@ -91,7 +100,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-           &none     |    &none     &none     &none       &none       &kp LS(LG(Z))  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
+           &none     |    &none     &none     &none       &none       &none  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   |          │          │          │          |          |
             &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none        &kp CAPS   &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
