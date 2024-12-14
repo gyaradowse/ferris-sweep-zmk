@@ -22,14 +22,6 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        fun_layer {
-            if-layers = <1 2>;
-            then-layer = <5>;
-        };
-    };
-
     combos {
         compatible = "zmk,combos";
         combo_z {
@@ -43,6 +35,12 @@
             key-positions = <1 3>;
             bindings = <&kp Q>;
         };
+
+        fun_layer {
+            timeout-ms = <50>;
+            key-positions = <30 33>;
+            bindings = <&mo 5>;
+            }
     };
 
     keymap {
