@@ -128,12 +128,12 @@
            &bt BT_CLR        &none     &none     &none     &none          &none     &none     &none     &none       &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //| BT NEXT  │          │          │BT PREVI  │          │      STOP    │PREV TRACK│ VOL DOWN │ VOL UP   │NEXT TRACK│
-           &bt BT_PRV   &none     &none     &bt BT_NXT     &none       &c_stop     &c_prev  &c_vol_down &c_vol_up   &c_next
+           &bt BT_PRV   &none     &none     &bt BT_NXT     &none      &kp C_STOP &kp C_PREV  &kp C_VOL_DOWN &kp C_VOL_UP &kp C_NEXT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │PROFILE 0 │PROFILE 1 │PROFILE 2 │PROFILE 3 │PROFILE 4 │
             &none     &none     &none       &none      &none         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &none     &none            &c_pp     &c_mute
+                                             &none     &none            &kp c_pp     &kp c_mute
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
