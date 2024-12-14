@@ -100,7 +100,7 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│          │          │          │          │          │   │          │          │          │          │          │
-           &none     |    &none     &none     &none       &none       &none  &kp LG(V)  &kp LG(C)  &kp LG(X)  &kp LG(Z)
+           &none     |   &none     &none     &none       &none       &none          &none      &none     &none       &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   |          │          │          │          |          |
             &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none        &kp CAPS   &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
