@@ -134,10 +134,10 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &kp F12  &kp F7     &kp F8     &kp F9          &none         &none     &none     &none     &none         &none
+           &kp F12  &kp F7     &kp F8     &kp F9          &sys_reset         &sys_reset     &none     &none     &none         &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &kp F11       &kp F4     &kp F5     &kp F6      &none         &none     &none     &none     &none         &none
+          &kp F11       &kp F4     &kp F5     &kp F6      &bootloader         &bootloader     &none     &none     &none         &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
             &kp F10     &kp F1     &kp F2    &kp F3      &none          &none     &none     &none     &none     &none
