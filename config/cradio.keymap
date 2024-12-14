@@ -50,16 +50,6 @@
         };
     };
 
-    behaviors {
-        sft_dot: shifted_dot {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LSHFT>, <&kp DOT>;
-            mods = <&kp COLON>;
-        };
-    };
-
-
     keymap {
         compatible = "zmk,keymap";
         default_layer {
