@@ -128,7 +128,7 @@
            &bt BT_CLR        &none     &none     &none     &none          &none     &none     &none     &none       &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //| BT NEXT  │          │          │BT PREVI  │          │      STOP    │PREV TRACK│ VOL DOWN │ VOL UP   │NEXT TRACK│
-           &bt BT_PRV   &none     &none     &bt BT_NXT     &none      &cp C_STOP &cp C_PREV  &cp C_VOL_DOWN &cp C_VOL_UP &cp C_NEXT
+           &bt BT_PRV   &none     &none     &bt BT_NXT     &none      &cp C_STOP &cp C_PREV  &cp C_VOL_DN &cp C_VOL_UP &cp C_NEXT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │PROFILE 0 │PROFILE 1 │PROFILE 2 │PROFILE 3 │PROFILE 4 │
             &none     &none     &none       &none      &none         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
