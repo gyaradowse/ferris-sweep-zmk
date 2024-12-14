@@ -24,12 +24,12 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        fun_layer {
+        tri_layer {
             if-layers = <1 2>;
             then-layer = <6>;
         };
 
-        mouse_layer {
+        tri_layer {
             if-layers = <3 4>;
             then-layer = <5>;
         };
@@ -98,7 +98,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
             &none     &none     &none       &none      &none          &kp INS     &kp HOME  &kp PG_DN   &kp PG_UP   &kp END
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &none     &none         &kp BSPC     &kp DEL
+                                             &none     &none         &kp ENTER     &kp DEL
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
