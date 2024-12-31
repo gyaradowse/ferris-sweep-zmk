@@ -123,14 +123,14 @@
         media_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ BT CLEAR │          │          │          │          │   │          │          │          │          │          │
-           &sys_reset        &bootloader     &none     &none     &none          &none     &none     &none     &none       &none
+        //│ RESET    │BOOTLOADER│          │          │          │   │          │          │          │BOOTLOADER│ RESET    │
+           &sys_reset &bootloader     &none     &none     &none          &none     &none     &none     &bootloader &sys_reset
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //| BT NEXT  │          │          │BT PREVI  │          │      STOP    │PREV TRACK│ VOL DOWN │ VOL UP   │NEXT TRACK│
-           &bt BT_PRV   &out OUT_TOG     &none     &bt BT_NXT     &none      &kp C_STOP &kp C_PREV  &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT
+        //| BT PREV  │          │          │BT NEXT  │          │      STOP    │PREV TRACK│ VOL DOWN │ VOL UP   │NEXT TRACK│
+           &bt BT_PRV &out OUT_TOG &none     &bt BT_NXT     &none      &kp C_STOP &kp C_PREV  &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │PROFILE 0 │PROFILE 1 │PROFILE 2 │PROFILE 3 │PROFILE 4 │
-            &none     &none     &none       &none      &none         &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+           &bt BT_CLR &bt BT_CLR_ALL     &none       &none      &none  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &none            &kp C_PP &kp C_MUTE
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -141,10 +141,10 @@
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
         //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
-           &kp F12  &kp F7     &kp F8     &kp F9          &sys_reset         &sys_reset     &none     &none     &none         &none
+           &kp F12  &kp F7     &kp F8     &kp F9          &none         &none     &none     &none     &none         &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
-          &kp F11       &kp F4     &kp F5     &kp F6      &bootloader         &bootloader     &none     &none     &none         &none
+          &kp F11       &kp F4     &kp F5     &kp F6      &none         &none     &none     &none     &none         &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
             &kp F10     &kp F1     &kp F2    &kp F3      &none          &none     &none     &none     &none     &none
