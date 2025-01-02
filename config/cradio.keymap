@@ -231,7 +231,7 @@
         //│          │          │          │          │          │   │          │          │          │          │          │
             &none     &none     &none    &tog MOU      &none          &none     &msc SCRL_LEFT     &msc SCRL_DOWN     &msc SCRL_UP     &msc SCRL_RIGHT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &mo NAV     &none         &mkp CLLK     &mkp RCLK
+                                             &mo NAV     &none         &mkp LCLK     &mkp RCLK
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
