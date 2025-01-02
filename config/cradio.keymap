@@ -6,9 +6,25 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
+
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 1500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 20    // default: 10
+
+#include <dt-bindings/zmk/pointing.h>
+
 // Home row mods macro
 #define HRML(k1,k2,k3,k4) &ht LGUI k1 &ht LALT k2  &ht LCTRL k3  &ht LSHFT k4
 #define HRMR(k1,k2,k3,k4) &ht RSHFT k1  &ht RCTRL k2  &ht RALT k3  &ht RGUI k4
+
+
+// Layer aliases
+#define DEF 0
+#define NUM 1
+#define NAV 2
+#define SYM 3
+#define MED 4
+#define FUN 5
+#define MOU 6
 
 / {
     behaviors {
@@ -89,13 +105,13 @@
         fun_layer {
             timeout-ms = <50>;
             key-positions = <30 33>;
-            bindings = <&mo 5>;
+            bindings = <&mo FUN>;
         };
 
         mouse_layer {
             timeout-ms = <50>;
             key-positions = <30 31>;
-            bindings = <&mo 6>;
+            bindings = <&mo MOU>;
         };
     };
 
@@ -113,7 +129,7 @@
         //│  V       │  P       │  L       │  D       │  / *     │   │  - +     │  M       │    O     │ . >      │ / ?      │
             &kp V      &kp P      &kp L      &kp D      &morph_fslash &morph_dash   &kp U      &kp O      &kp Y      &kp F
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                           &lt 2 SPACE  &lt 4 TAB     &lt 3 BSPC   &lt 1 R
+                                           &lt NAV SPACE  &lt MED TAB     &lt SYM BSPC   &lt NUM R
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -128,7 +144,7 @@
             &kp SEMI    &kp N4     &kp N5     &kp N6    &kp EQUAL       &none    &kp RSHFT   &kp RCTRL  &kp RALT   &kp RGUI
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│    `     │  1       │  2       │  3       │     \    │   │          │          │          │          │          │
-           &kp GRAVE   &kp N1     &kp N2       &kp N3    &kp BSLH         &none     &none     &none     &none     &none
+           &kp GRAVE   &kp N1     &kp N2       &kp N3    &kp BSLH         &none   &tog FUN     &none     &none     &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &kp DOT    &kp N0        &none     &none
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -145,7 +161,7 @@
             &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none        &kp CAPS   &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &none     &none     &none       &none      &none          &kp INS     &kp HOME  &kp PG_DN   &kp PG_UP   &kp END
+            &none     &none     &none       &tog MOU      &none          &kp INS     &kp HOME  &kp PG_DN   &kp PG_UP   &kp END
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &none         &kp BSPC     &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -155,8 +171,8 @@
         sym_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│          │  [       │  {       │  }       │          │   │  ^       │  (       │  )       │  ]       │  ~       │
-           &kp LBRC    &kp AMPS   &kp ASTRK   &kp LPAR   &kp RBRC            &none  &none   &none   &bootloader   &sys_reset
+        //│     {    │     &    │    *     │     (    │      }   │   │  ^       │          │          │          │         │
+           &kp LBRC    &kp AMPS   &kp ASTRK   &kp LPAR   &kp RBRC            &none  &none   &none   &none   &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  !       │  @       │  #       │  $       │  %       │   │  *       │  -       │  =       │  \       │  `       │
             &kp COLON   &kp DLLR  &kp PRCNT   &kp CARET &kp PLUS        &none     &kp RSHFT  &kp RCTRL   &kp RALT   &kp RGUI
@@ -199,6 +215,23 @@
             &kp F10     &kp F1     &kp F2    &kp F3      &none          &none     &none     &none     &none     &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &none         &none     &none
+        //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
+            >;
+        };
+
+        mouse_layer {
+            bindings = <
+        //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
+        //│          │          │          │          │          │   │          │          │          │          │          │
+           &none        &none     &none     &none        &none          &none     &mkp MB4   &mkp MCLK   &mkp MB5   &none
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │          │   │          │          │          │          │          │
+          &none         &none      &none     &none      &none            &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN     &mmv MOVE_UP     &mmv MOVE_RIGHT
+        //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
+        //│          │          │          │          │          │   │          │          │          │          │          │
+            &none     &none     &none    &none      &none          &none     &msc SCRL_LEFT     &msc SCRL_DOWN     &msc SCRL_UP     &msc SCRL_RIGHT
+        //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
+                                             &none     &none         &mkp RCLK     &mkp LCLK
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
