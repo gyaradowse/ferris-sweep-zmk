@@ -21,6 +21,55 @@
             require-prior-idle-ms = <100>;
             bindings = <&kp>, <&kp>;
         };
+
+        morph_comma: comma_to_semicolon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp SEMI>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        morph_hash: hash_to_at {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp HASH>, <&kp AT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        morph_dash: dash_to_plus {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp PLUS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        morph_dot: dot_to_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp COLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        morph_sqt: sqoute_to_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        morph_dqt: dqt_to_excl {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DQT>, <&kp EXCL>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        morph_fslash: fslash_to_asterisk {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp ASTERISK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     combos {
@@ -55,14 +104,14 @@
         default_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│  X       │  W       │  M       │  G       │  "       │   │  #       │  . :     │  ' ?     │  J       │  B       │
-            &kp X      &kp W      &kp M      &kp G      &kp DQT        &kp HASH    &kp DOT   &kp SQT     &kp J      &kp B
+        //│  X       │  W       │  M       │  G       │  " !     │   │  # @     │  . :     │  ' ?     │  J       │  B       │
+            &kp X      &kp W      &kp M      &kp G      &morph_dqt    &morph_hash &morph_dot &morph_sqt     &kp J      &kp B
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│  S       │  C       │  N       │  T       │  K       │   │  , ;       │  A       │  E       │  I       │   H      │
-            HRML(S,        C,         N,         T)     &kp K          &kp COMMA      HRMR(A,        E,         I,        H)
+            HRML(S,        C,         N,         T)     &kp K         &morph_comma HRMR(A,        E,         I,        H)
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│  V       │  P       │  L       │  D       │  /       │   │  - +     │  M       │    O     │ . >      │ / ?      │
-            &kp V      &kp P      &kp L      &kp D      &kp FSLH       &kp MINUS   &kp U      &kp O      &kp Y      &kp F
+        //│  V       │  P       │  L       │  D       │  / *     │   │  - +     │  M       │    O     │ . >      │ / ?      │
+            &kp V      &kp P      &kp L      &kp D      &morph_fslash &morph_dash   &kp U      &kp O      &kp Y      &kp F
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                            &lt 2 SPACE  &lt 4 TAB     &lt 3 BSPC   &lt 1 R
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
@@ -140,13 +189,13 @@
         fun_layer {
             bindings = <
         //╭──────────┬──────────┬──────────┬──────────┬──────────╮   ╭──────────┬──────────┬──────────┬──────────┬──────────╮
-        //│ RESET    │          │          │          │PROFILE 0 │   │          │          │          │          │  RESET   │
+        //│          │          │          │          │          │              │          │          │          │          │
            &kp F12  &kp F7     &kp F8     &kp F9          &none         &none     &none     &none     &none         &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│BOOTLOADER│          │          │          │PROFILE 1 │   │          │          │          │          │BOOTLOADER│
+        //│          │          │          │          │          │   │          │          │          │          │          │
           &kp F11       &kp F4     &kp F5     &kp F6      &none         &none     &none     &none     &none         &none
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
-        //│          │          │          │ CLEAR BT │PROFILE 2 │   │          │          │          │          │          │
+        //│          │          │          │          │          │   │          │          │          │          │          │
             &kp F10     &kp F1     &kp F2    &kp F3      &none          &none     &none     &none     &none     &none
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
                                              &none     &none         &none     &none
