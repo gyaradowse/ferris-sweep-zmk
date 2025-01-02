@@ -86,6 +86,13 @@
             bindings = <&kp FSLH>, <&kp ASTERISK>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        morph_bspace: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT)>;
+        };
     };
 
     combos {
@@ -104,14 +111,20 @@
 
         fun_layer {
             timeout-ms = <50>;
-            key-positions = <30 33>;
-            bindings = <&mo FUN>;
+            key-positions = <31 33>;
+            bindings = <&tog FUN>;
         };
 
         mouse_layer {
             timeout-ms = <50>;
-            key-positions = <30 31>;
-            bindings = <&mo MOU>;
+            key-positions = <31 32>;
+            bindings = <&tog MOU>;
+        };
+
+        nav_layer {
+            timeout-ms = <50>;
+            key-positions = <30 33>;
+            bindings = <&tog NAV>;
         };
     };
 
@@ -161,9 +174,9 @@
             &kp LGUI   &kp LALT   &kp LCTRL   &kp LSHFT   &none        &kp CAPS   &kp LEFT   &kp DOWN    &kp UP    &kp RIGHT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &none     &none     &none       &tog MOU      &none          &kp INS     &kp HOME  &kp PG_DN   &kp PG_UP   &kp END
+            &none     &none     &none       &none      &none          &kp INS     &kp HOME  &kp PG_DN   &kp PG_UP   &kp END
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &none     &none         &kp BSPC     &kp ENTER
+                                             &none     &none         &morph_bspace     &kp ENTER
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
@@ -229,9 +242,9 @@
           &none         &none      &none     &none      &none            &none   &mmv MOVE_LEFT     &mmv MOVE_DOWN     &mmv MOVE_UP     &mmv MOVE_RIGHT
         //├──────────┼──────────┼──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┼──────────┼──────────┤
         //│          │          │          │          │          │   │          │          │          │          │          │
-            &none     &none     &none    &tog MOU      &none          &none     &msc SCRL_LEFT     &msc SCRL_DOWN     &msc SCRL_UP     &msc SCRL_RIGHT
+            &none     &none     &none    &none      &none          &none     &msc SCRL_LEFT     &msc SCRL_DOWN     &msc SCRL_UP     &msc SCRL_RIGHT
         //╰──────────┴──────────┴──────────┼──────────┼──────────┤   ├──────────┼──────────┼──────────┴──────────┴──────────╯
-                                             &mo NAV     &none         &mkp LCLK     &mkp RCLK
+                                             &none     &none         &mkp LCLK     &mkp RCLK
         //                                 ╰──────────┴──────────╯   ╰──────────┴──────────╯
             >;
         };
